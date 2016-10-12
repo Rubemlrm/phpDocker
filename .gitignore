@@ -1,0 +1,5 @@
+/logs/mysql/*
+/logs/nginx/*
+/logs/php/*
+/data/database/*
+/data/site/*

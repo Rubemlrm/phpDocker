@@ -1,19 +1,13 @@
-gogs:
-  restart: always
-  image: gogs/gogs-rpi:0.9.97
-  volumes:
-   - /home/rubemlrm/data/gogs:/data
-  ports:
-   - "3000:3000"
-   - "2222:22"
-
 web:
   restart: always
   build: ./nginx/
   volumes:
-   - /home/rubemlrm/data/nginx/logs:/var/log/nginx
+   - ./logs/nginx:/var/log/nginx
+   - ./data/site/:/var/www
   ports:
     - "80:80"
   links:
-   - gogs
+   - php
 
+php:
+    image: php:7-fpm
