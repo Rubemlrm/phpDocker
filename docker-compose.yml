@@ -1,13 +1,28 @@
 web:
   restart: always
-  build: ./nginx/
+  build: ./services/nginx/
   volumes:
    - ./logs/nginx:/var/log/nginx
-   - ./data/site/:/var/www
+   - ./data/site:/var/www
   ports:
     - "80:80"
   links:
    - php
 
 php:
-    image: php:7-fpm
+  restart: always
+  image: matriphe/alpine-php:fpm
+  volumes:
+    - ./data/site:/var/www
+  links:
+    - db
+
+db:
+  restart: always
+  image: mysql:latest
+  volumes:
+    - ./data/database:/var/lib/mysql
+  ports:
+    - "3306:3306"
+  env_file:
+        - .env
