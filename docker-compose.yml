@@ -11,7 +11,7 @@ web:
 
 php:
   restart: always
-  image: matriphe/alpine-php:fpm
+  image: bitnami/php-fpm
   volumes:
     - ./data/site:/var/www
   links:
