@@ -1,9 +1,9 @@
 web:
   restart: always
-  build: ./services/nginx/
+  build: ./docker/services/nginx/
   volumes:
-   - ./logs/nginx:/var/log/nginx
-   - ./data/site:/var/www
+   - ./docker/logs/nginx:/var/log/nginx
+   - ./site:/var/www
   ports:
     - "80:80"
   links:
@@ -13,7 +13,7 @@ php:
   restart: always
   image: bitnami/php-fpm
   volumes:
-    - ./data/site:/var/www
+    - ./site:/var/www
   links:
     - db
 
@@ -21,7 +21,7 @@ db:
   restart: always
   image: mysql:latest
   volumes:
-    - ./data/database:/var/lib/mysql
+    - ./docker/data/database:/var/lib/mysql
   ports:
     - "3306:3306"
   env_file:

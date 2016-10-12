@@ -1,5 +1,5 @@
-/logs/mysql/*
-/logs/nginx/*
-/logs/php/*
-/data/database/*
-/data/site/*
+/docker/ogs/mysql/*
+/docker/logs/nginx/*
+/docker/logs/php/*
+/docker/data/database/*
+/site/*
