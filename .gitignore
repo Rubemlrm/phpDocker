@@ -3,3 +3,4 @@
 /docker/logs/php/*
 /docker/data/database/*
 /site/*
+/docker/.env
