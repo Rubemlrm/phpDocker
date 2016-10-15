@@ -1,6 +1,8 @@
-/docker/ogs/mysql/*
-/docker/logs/nginx/*
-/docker/logs/php/*
+/docker/logs/mysql/*.log
+/docker/logs/nginx/*.log
+/docker/logs/php/*.log
 /docker/data/database/*
+/site/*
+!/site/.gitkeep
 /site/*
 /docker/.env

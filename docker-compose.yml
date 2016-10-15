@@ -3,7 +3,7 @@ web:
   build: ./docker/services/nginx/
   volumes:
    - ./docker/logs/nginx:/var/log/nginx
-   - ./site:/var/www
+   - ./site:/usr/src/
   ports:
     - "80:80"
   links:
@@ -11,9 +11,9 @@ web:
 
 php:
   restart: always
-  image: bitnami/php-fpm
+  build: ./docker/services/php/
   volumes:
-    - ./site:/var/www
+    - ./site:/usr/src/
   links:
     - db
 
